@@ -3,26 +3,30 @@ module Api
     class ForecastsController < ApplicationController 
       include Verifiable
 
-      def index
-        verify = check_input(location_params)
+      def show
+        check_input(location_input)
 
-        coords = [
-          verify.body[:features][:properties][:lat], 
-          verify.body[:features][:properties][:long]
-        ]
+        user_input = [ location_input, units_requested ].compact!
+        forecast = ForecastFacade.weather(get_coords(user_input))
 
-        forecast = ForecastFacade.weather(coords)
-
-        render json: ForecastPoro.new(forecast)
+        render json: forecast
       end
 
       private
-        def location_params
+        def location_input
           params.permit(:location)
-        end  
+        end
 
-        def unit_params
+        def units_requested
           params.permit(:units)
+        end
+
+        def get_coords(input)
+          coordinates = MapQuestFacade.verify_location(input)
+          [
+            coordintes.body[:features][:properties][:lat], 
+            coordinates.body[:features][:properties][:long]
+          ]
         end
     end
   end
