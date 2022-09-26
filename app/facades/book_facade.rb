@@ -7,7 +7,7 @@ class BookFacade
     end
 
     Books.new({
-      books: books,, 
+      books: books, 
       location: location,
       forcast: get_forecast(location),
       total_books_found: search[:numFound]
@@ -16,10 +16,10 @@ class BookFacade
 
   def self.get_forecast(location)
     coords = MapQuestFacade.get_coords(location)
-    current = ForecastFacade.current_conditions(coords, 'imperial')
+    current = ForecastFacade.current_conditions(coords)
     { 
       summary: current[:weather][0][:description], 
-      temperature: current[:temp].to_s.join(' °F') 
+      temperature: current[:temp].to_s.concat(' °F') 
     }
   end
 end

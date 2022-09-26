@@ -1,5 +1,5 @@
 class BookService < BaseService
-  def self.get_books(location, qty)
+  def self.search_books(location, qty)
     response = conn.get("search.json") do |req|
       req.params['q'] = location
       req.params['limit'] = qty
