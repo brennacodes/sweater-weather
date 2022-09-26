@@ -9,7 +9,7 @@ RSpec.describe "Book search", type: :request, vcr: true do
       get api_v1_books_path, params: { location: location, quantity: quantity }
       expect(response).to have_http_status(200)
       expect(response.content_type).to eq("application/json; charset=utf-8")
-
+      
       response = JSON.parse(response.body, symbolize_names: true)
       expect(response).to have_key(:data)
 
@@ -23,7 +23,7 @@ RSpec.describe "Book search", type: :request, vcr: true do
       expect(data[:attributes]).to be_a(Hash)
 
       attributes = data[:attributes]
-      
+
       expect(attributes).to have_key(:location)
       expect(attributes[:location]).to be_a(String)
       expect(attributes[:location]).to eq(location)

@@ -6,8 +6,8 @@ class Books
               :books
 
   def initialize(attributes)
-    @id = nil
-    @destination = attributes[:destination]
+    @id = 0
+    @destination = attributes[:location]
     @forecast = attributes[:forecast]
     @total_books_found = attributes[:total_books_found]
     @books = attributes[:books]

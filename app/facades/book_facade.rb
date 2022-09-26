@@ -5,11 +5,10 @@ class BookFacade
     books = search[:docs].map do |book|
       Book.new(book)
     end
-
     Books.new({
       books: books, 
       location: location,
-      forcast: get_forecast(location),
+      forecast: get_forecast(location),
       total_books_found: search[:numFound]
     })
   end
@@ -18,8 +17,8 @@ class BookFacade
     coords = MapQuestFacade.get_coords(location)
     current = ForecastFacade.current_conditions(coords)
     { 
-      summary: current[:weather][0][:description], 
-      temperature: current[:temp].to_s.concat(' °F') 
+      summary: current[:weather][0][:description].capitalize, 
+      temperature: current[:temp].to_s.concat(' F') 
     }
   end
 end
