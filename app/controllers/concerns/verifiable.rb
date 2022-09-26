@@ -1,6 +1,10 @@
 module Verifiable
   extends Renderable
 
+  def check_quantity(quantity)
+    quantity.is_a(Integer) && quantity > 0
+  end
+
   def check_input(location_input)
     return render_missing_location if location_input.nil? || location_input.empty?
     return render_invalid_location_input if location_input.split(',').length < 2
