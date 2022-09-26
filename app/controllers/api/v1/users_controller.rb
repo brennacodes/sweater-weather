@@ -1,7 +1,10 @@
 module Api
   module V1
     class UsersController < ApplicationController
+      include Existable
+      
       def create
+        user_precheck
         user = User.new(user_params)
         if user.save
           render json: UserSerializer.new(user), status: 201
