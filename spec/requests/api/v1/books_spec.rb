@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe "Book search", type: :request, vcr: true do
+RSpec.describe "book search", type: :request, vcr: true do
   let!(:location) { "Denver,CO" }
   let!(:quantity) { 5 }
   
   describe "GET /books" do
-    it "retrieves books for a given location" do
+    it "retrieves books for a given location and quantity limit" do
       get api_v1_books_path, params: { location: location, quantity: quantity }
       expect(response).to have_http_status(200)
       expect(response.content_type).to eq("application/json; charset=utf-8")
@@ -55,7 +55,6 @@ RSpec.describe "Book search", type: :request, vcr: true do
 
       expect(attributes[:books].first).to have_key(:publisher)
       expect(attributes[:books].first[:publisher]).to be_a(Array)
-
     end
   end
 end
