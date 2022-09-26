@@ -1,12 +1,12 @@
 class ForecastFacade
   def self.weather(coords, *units)
-    require 'pry'; binding.pry 
-    forecast = OpenWeatherService.get_weather(coords[0], coords[1], *units)
+    forecast = OpenWeatherService.get_weather([coords[0], coords[1]], *units)
     weather_breakdown(forecast)
   end
 
   private
-    def weather_breakdown(forecast)
+    def self.weather_breakdown(forecast)
+      require 'pry'; binding.pry 
       weather = Hash.new
       weather[:current] = CurrentWeather.new(forecast[:current])
       weather[:daily] = forecast[:daily].map do |daily|

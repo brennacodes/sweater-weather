@@ -1,29 +1,28 @@
 class OpenWeatherService < BaseService
-  def self.get_weather(input)
-    return get_weather_with_units(input) if input.count == 2
-    
-    response = conn.get("/onecall") do |req|
-      req.params = { 
-        lat: input[0],
-        lon: input[1]
-      }
+  def self.get_weather(input, *units)
+    return get_weather_with_units(input, units) if !units.empty?
+    response = conn.get("data/2.5/onecall") do |req|
+      req.params['lat'] = input[0].to_s
+      req.params['lon'] = input[1].to_s
+      req.params['exclude'] = "minutely"
+      req.params['appid'] = Figaro.env.weather_api_key
     end
-    parse_json(response)
+    self.parse_json(response)
   end
 
   private
     def self.conn
-      faraday_conn("https://api.openweathermap.org/data/2.5")
+      self.faraday_conn("https://api.openweathermap.org/")
     end  
 
-    def self.get_weather_with_units(input)
-      response = conn.get("/onecall") do |req|
-        req.params = { 
-          lat: input[0][0],
-          lon: input[0][1],
-          units: input[1]
-        }
+    def self.get_weather_with_units(input, units)
+      response = conn.get("data/2.5/onecall") do |req|
+        req.params['lat'] = input[0]
+        req.params['lon'] = input[1]
+        req.params['units'] = units
+        req.params['exclude'] = "minutely"
+        req.params['appid'] = Figaro.env.weather_api_key
       end
-      parse_json(response)
+      self.parse_json(response)
     end
 end

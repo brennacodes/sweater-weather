@@ -25,8 +25,8 @@ module Api
         def get_coords(input)
           coordinates = MapQuestFacade.verify_location(input[0])
           [
-            coordintes.body[:features][:properties][:lat], 
-            coordinates.body[:features][:properties][:long]
+            coordinates[:results][0][:locations][0][:latLng][:lat], 
+            coordinates[:results][0][:locations][0][:latLng][:lng]
           ]
         end
     end

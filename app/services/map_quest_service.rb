@@ -1,17 +1,15 @@
 class MapQuestService < BaseService
+# include Parsable
   def self.get_coordinates(location)
-    response = conn.get("/address") do |req|
-      req.params = { 
-        location: location,
-        key: ENV['MAPQUEST_API_KEY']
-      }
+    response = conn.get("/geocoding/v1/address") do |req|
+      req.params['location'] = location
+      req.params['key'] = Figaro.env.map_api_key
     end
-    require 'pry'; binding.pry 
-    parse_json(response)
+    self.parse_json(response)
   end
   
   private
     def self.conn
-      faraday_conn("http://www.mapquestapi.com/geocoding/v1")
+      self.faraday_conn("http://www.mapquestapi.com")
     end
 end

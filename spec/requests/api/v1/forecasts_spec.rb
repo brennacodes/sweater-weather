@@ -20,8 +20,13 @@ RSpec.describe "Forecasts", type: :request, vcr: true do
 
     it "has has a sad path" do
       get api_v1_forecasts_path, params: { location: sad_location_1 }
-      expect(response).to have_http_status(:not_found)
+      expect(response).to_not be_successful
 
+      get api_v1_forecasts_path, params: { location: sad_location_2 }
+      expect(response).to_not be_successful
+
+      get api_v1_forecasts_path, params: { location: sad_location_3 }
+      expect(response).to_not be_successful
     end
   end
 end
