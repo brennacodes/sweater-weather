@@ -3,9 +3,9 @@ class Book
               :title,
               :publisher,
 
-  def def initialize(attributes)
-    @isbn = attributes
-    @title = attributes
-    @publisher = attributes
+  def def initialize(attributes[0])
+    @isbn = attributes[:isbn]
+    @title = attributes[:title]
+    @publisher = attributes[:publisher]
   end
 end

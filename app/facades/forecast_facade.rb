@@ -4,6 +4,10 @@ class ForecastFacade
     weather_breakdown(forecast)
   end
 
+  def self.current_conditions(coords)
+    OpenWeatherService.get_weather([coords[0], coords[1]], 'imperial')[:current]
+  end
+
   private
     def self.weather_breakdown(forecast)
       weather = Hash.new
