@@ -1,4 +1,5 @@
 module Renderable
+
   def render_missing_location
     render json: { error: 'Missing location parameter' }, status: 400
   end
@@ -27,5 +28,13 @@ module Renderable
 
   def render_password_mismatch
     render json: { error: 'Password and password confirmation do not match' }, status: 400
+  end
+
+  def render_try_again
+    render json: { error: 'Please try your request again' }, status: 400
+  end
+
+  def render_something_wrong
+    render json: { error: 'Something went wrong. Try again or come back later.' }, status: 409
   end
 end

@@ -2,14 +2,14 @@ module Api
   module V1
     class UsersController < ApplicationController
       include Existable
-      
+      before_action :user_precheck, only: [:create]
+
       def create
-        user_precheck
         user = User.new(user_params)
         if user.save
           render json: UserSerializer.new(user), status: 201
         else
-          render json: { error: 'Email already exists' }, status: 409
+          render_something_wrong
         end
       end
 

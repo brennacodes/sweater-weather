@@ -1,30 +1,26 @@
 module Existable
-  extend Renderable
+  include Renderable
 
   def user_precheck
-    new_user?
-    missing_params?
-    given_valid_params?
-    passwords_match?
+    return render_user_exists if !new_user?
+    return render_missing_params if missing_params?
+    return render_password_mismatch if password_mismatch?
+    return render_invalid_params if given_empty_params?
   end
 
   def new_user?
-    return render_user_exists if User.email_exists?(params[:email])
-    true
+    User.email_exists?(params[:email]) == false
   end
 
   def missing_params?
-    return render_missing_params if params[:email].nil? || params[:password].nil?
-    true
+    params[:email].nil? || params[:password].nil? || params[:password_confirmation].nil?
   end
 
-  def given_valid_params?
-    return render_invalid_params if params[:email].empty? || params[:password].empty?
-    true
+  def given_empty_params?
+    params[:email].empty? || params[:password].empty?
   end
 
-  def passwords_match?
-    return render_password_mismatch if params[:password] != params[:password_confirmation]
-    true
+  def password_mismatch?
+    params[:password] != params[:password_confirmation]
   end
 end
