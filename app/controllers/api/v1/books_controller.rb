@@ -1,6 +1,6 @@
 module Api
   module V1
-    class Api::V1::BooksController < ApplicationController
+    class BooksController < ApplicationController
       def index
         quantity = book_params[:quantity]
         topic = book_params[:location]
