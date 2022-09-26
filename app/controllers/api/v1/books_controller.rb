@@ -2,6 +2,7 @@ module Api
   module V1
     class BooksController < ApplicationController
       include Verifiable
+      
       def index
         if check_quantity(params[:quantity])
           quantity = book_params[:quantity]

@@ -53,5 +53,15 @@ RSpec.describe "book search", type: :request, vcr: true do
       expect(attributes[:books].first).to have_key(:publisher)
       expect(attributes[:books].first[:publisher]).to be_a(Array)
     end
+
+    it "returns an error if the quantity is invalid" do
+      get api_v1_books_path, params: { location: location, quantity: 0 }
+      expect(response).to_not be_successful
+      expect(response).to have_http_status(400)
+
+      get api_v1_books_path, params: { location: location, quantity: -1 }
+      expect(response).to_not be_successful
+      expect(response).to have_http_status(400)
+    end
   end
 end

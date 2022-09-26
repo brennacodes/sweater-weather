@@ -1,8 +1,9 @@
 module Verifiable
-  extends Renderable
+  include Renderable
 
   def check_quantity(quantity)
-    quantity.is_a(Integer) && quantity > 0
+    quantity = quantity.to_i if quantity.is_a?(String)
+    quantity.is_a?(Integer) && quantity > 0
   end
 
   def check_input(location_input)
