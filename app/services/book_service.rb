@@ -1,8 +1,8 @@
 class BookService < BaseService
-  def self.get_books(location)
+  def self.get_books(location, qty)
     response = conn.get("search.json") do |req|
-      req.params['title'] = location
-      req.params['key'] = Figaro.env.books_api_key
+      req.params['q'] = location
+      req.params['limit'] = qty
     end
     self.parse_json(response)
   end
