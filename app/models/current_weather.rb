@@ -11,8 +11,8 @@ class CurrentWeather
               :conditions,
               :icon
 
-  def initialize(data[:current])
-    @id = null
+  def initialize(data)
+    @id = 0
     @datetime = Time.at(data[:dt]).to_datetime
     @sunrise = Time.at(data[:sunrise]).to_datetime
     @temperature = data[:temp]

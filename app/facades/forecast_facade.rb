@@ -6,7 +6,6 @@ class ForecastFacade
 
   private
     def self.weather_breakdown(forecast)
-      require 'pry'; binding.pry 
       weather = Hash.new
       weather[:current] = CurrentWeather.new(forecast[:current])
       weather[:daily] = forecast[:daily].map do |daily|
@@ -16,5 +15,6 @@ class ForecastFacade
         HourlyWeather.new(hourly)
       end
       weather
+      require 'pry'; binding.pry 
     end
 end
