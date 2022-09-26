@@ -5,8 +5,6 @@ RSpec.describe "Forecasts", type: :request, vcr: true do
   let!(:email) { user.email }
   let!(:password) { user.password_digest }
   let!(:api_key) { user.api_key }
-  let!(:headers) { { "CONTENT_TYPE" => "application/json" } }
-  let!(:body) { { email: email, password: password }.to_json }
   let!(:happy_location) { "Denver,CO" }
   let!(:sad_location_1) { "Denver" }
   let!(:sad_location_2) { "aaljpoiap" }
@@ -14,7 +12,7 @@ RSpec.describe "Forecasts", type: :request, vcr: true do
 
   describe "request with location params" do
     it "has has a happy path" do
-      get api_v1_forecasts_path, params: { location: happy_location }, headers: headers
+      get api_v1_forecasts_path, params: { location: happy_location }
       expect(response).to have_http_status(:success)
     end
 
@@ -28,5 +26,19 @@ RSpec.describe "Forecasts", type: :request, vcr: true do
       get api_v1_forecasts_path, params: { location: sad_location_3 }
       expect(response).to_not be_successful
     end
+
+    it "returns necessary data" do
+      get api_v1_forecasts_path, params: { location: happy_location }
+
+      expect(response).to be_successful
+      expect(response[:id]).to be(null)
+      expect[:data][:attributes][:current_weather].to have_key(:datetime)
+    end
+  end
+
+  describe "request with location and units params" do
+    let!(:happy_units) { "metric" }
+    let!(:sad_units_1) { " " }
+    let!(:sad_units_2) { "zzzzz" }
   end
 end

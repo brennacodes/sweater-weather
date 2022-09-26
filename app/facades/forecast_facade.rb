@@ -15,6 +15,6 @@ class ForecastFacade
         HourlyWeather.new(hourly)
       end
       weather
-      require 'pry'; binding.pry 
+      Forecast.new(weather)
     end
 end
