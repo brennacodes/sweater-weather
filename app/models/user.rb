@@ -1,7 +1,14 @@
 class User < ApplicationRecord
-  before_save :assign_api_key
+  has_secure_password
 
-  validates_presence_of :email, :password_digest
+  before_save :assign_api_key, on: :create
+
+  validates_presence_of :email
+
+  def self.email_exists?(email)
+    user = User.find_by(email: email)
+    !user.nil?
+  end
 
   private
     def assign_api_key
