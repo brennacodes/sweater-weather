@@ -1,5 +1,6 @@
 class ForecastFacade
   def self.weather(coords, *units)
+    require 'pry'; binding.pry 
     forecast = OpenWeatherService.get_weather(coords[0], coords[1], *units)
     weather_breakdown(forecast)
   end

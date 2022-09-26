@@ -1,0 +1,45 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://www.mapquestapi.com/address?key=map_api_key&location=Denver,CO
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.5.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 301
+      message: Redirect
+    headers:
+      Date:
+      - Mon, 26 Sep 2022 00:42:21 GMT
+      Content-Length:
+      - '0'
+      Host:
+      - mapquest-prod.apigee.net
+      X-Forwarded-For:
+      - 174.29.96.255, 52.12.126.142
+      X-Forwarded-Port:
+      - '80'
+      X-Forwarded-Proto:
+      - http
+      User-Agent:
+      - Faraday v2.5.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      Location:
+      - https://developer.mapquest.com/documentation/
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Mon, 26 Sep 2022 00:42:21 GMT
+recorded_with: VCR 6.1.0
