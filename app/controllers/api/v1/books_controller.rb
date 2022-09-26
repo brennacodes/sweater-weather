@@ -2,10 +2,12 @@ module Api
   module V1
     class Api::V1::BooksController < ApplicationController
       def index
-        location = book_params[:location]
+        coords = MapQuestFacade.get_coords(book_params[:location])
         quantity = book_params[:quantity]
-        books = BookFacade.new(location, quantity)
-        render json: BookSerializer.new(books)
+        topic = book_params[:location]
+        forecast = ForecastFacade.weather(coords, 'imperial')[:current]
+        books = BookFacade.new(topic, quantity)
+        render json: BookSerializer.new(books, forecast)
       end
 
       private
