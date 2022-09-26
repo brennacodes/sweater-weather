@@ -1,5 +1,4 @@
 class MapQuestService < BaseService
-# include Parsable
   def self.get_coordinates(location)
     response = conn.get("/geocoding/v1/address") do |req|
       req.params['location'] = location

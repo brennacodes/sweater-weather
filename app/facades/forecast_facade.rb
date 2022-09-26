@@ -1,6 +1,6 @@
 class ForecastFacade
-  def self.weather(coords, *units)
-    forecast = OpenWeatherService.get_weather([coords[0], coords[1]], *units)
+  def self.weather(coords, units)
+    forecast = OpenWeatherService.get_weather([coords[0], coords[1]], units)
     weather_breakdown(forecast)
   end
 
@@ -14,7 +14,6 @@ class ForecastFacade
       weather[:hourly] = forecast[:hourly].map do |hourly|
         HourlyWeather.new(hourly)
       end
-      weather
       Forecast.new(weather)
     end
 end

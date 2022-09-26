@@ -4,13 +4,9 @@ module Api
       include Verifiable
 
       def show
-        check_input(location_params[:location])
+        check = check_input(location_params[:location])
 
-        user_input = [ location_params[:location], units_params[:units] ].compact!
-        forecast = ForecastFacade.weather(get_coords(user_input))
-        require 'pry'; binding.pry 
-
-        render json: forecast
+        process_location if check == true
       end
 
       private
@@ -23,11 +19,20 @@ module Api
         end
 
         def get_coords(input)
-          coordinates = MapQuestFacade.verify_location(input[0])
+          coordinates = MapQuestFacade.verify_location(input)
           [
             coordinates[:results][0][:locations][0][:latLng][:lat], 
             coordinates[:results][0][:locations][0][:latLng][:lng]
           ]
+        end
+
+        def process_location
+          units = check_unit_params(units_params[:units])
+          user_input = [ location_params[:location], units ]
+          forecast = ForecastFacade.weather(get_coords(location_params), units)
+
+          render json: ForecastSerializer.new(forecast) if forecast != nil
+          render json: { error: 'Could not process your request at this time.' }, status: 400  if forecast == nil
         end
     end
   end

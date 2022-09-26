@@ -13,6 +13,7 @@ class CurrentWeather
   def initialize(data)
     @datetime = Time.at(data[:dt]).to_datetime
     @sunrise = Time.at(data[:sunrise]).to_datetime
+    @sunset = Time.at(data[:sunset]).to_datetime
     @temperature = data[:temp]
     @feels_like = data[:feels_like]
     @humidity = data[:humidity]
