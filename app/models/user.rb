@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
 
-  before_save :assign_api_key, on: :create
+  before_save :assign_api_key
 
   validates_presence_of :email
 

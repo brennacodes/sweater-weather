@@ -19,14 +19,15 @@ RSpec.describe "User Registration", type: :request, vcr: true do
       expect(response.status).to eq(201)
 
       data = JSON.parse(response.body, symbolize_names: true)[:data]
+      id = User.last.id
 
-      expect(data[:id]).to eq(1)
+      expect(data[:id]).to eq(id.to_s)
       expect(data[:type]).to eq("user")
 
       attributes = data[:attributes]
       expect(attributes[:email]).to eq(email)
       expect(attributes[:api_key]).to be_a(String)
-      expect(attributes[:api_key].length).to eq(22)
+      expect(attributes[:api_key].length).to eq(28)
       expect(attributes).to_not have_key(:password_digest)
       expect(attributes).to_not have_key(:password)
     end

@@ -1,11 +1,11 @@
 module Existable
-  extends Renderable
-  
+  extend Renderable
+
   def user_precheck
     new_user?
     missing_params?
     given_valid_params?
-    has_valid_credentials?
+    passwords_match?
   end
 
   def new_user?
@@ -23,8 +23,8 @@ module Existable
     true
   end
 
-  def has_valid_credentials?
-    return render_invalid_credentials if invalid_credentials?
+  def passwords_match?
+    return render_password_mismatch if params[:password] != params[:password_confirmation]
     true
   end
 end

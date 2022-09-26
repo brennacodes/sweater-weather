@@ -24,4 +24,8 @@ module Renderable
   def render_invalid_params
     render json: { error: 'Invalid parameters' }, status: 400
   end
+
+  def render_password_mismatch
+    render json: { error: 'Password and password confirmation do not match' }, status: 400
+  end
 end
