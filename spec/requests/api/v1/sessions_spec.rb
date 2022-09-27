@@ -8,11 +8,10 @@ RSpec.describe "Sessions", type: :request do
   describe "POST /api/v1/sessions" do
     it "returns json with api key when valid params are given" do
       post api_v1_sessions_path, params: { email: email, password: password }
-      require 'pry'; binding.pry 
+      
       expect(response).to be_successful
       expect(response.status).to eq(200)
-      expect(response.content_type).to eq("application/json")
-      expect(response.body).to be_a(Hash)
+      expect(response.content_type).to eq("application/json; charset=utf-8")
 
       body = JSON.parse(response.body, symbolize_names: true)
 
@@ -31,14 +30,20 @@ RSpec.describe "Sessions", type: :request do
       expect(body[:data][:attributes][:api_key].length).to eq(28)
     end
 
-    it "returns 400 if no params are given" do
+    it "returns 401 if no params are given" do
       post api_v1_sessions_path, params: {}
-      expect(response.status).to eq(400)
+      expect(response.status).to eq(401)
+
+      message = JSON.parse(response.body, symbolize_names: true)
+      expect(message).to eq({"error": "Invalid credentials"})
     end
 
     it "returns 401 if invalid credentials are given" do
       post api_v1_sessions_path, params: { email: email, password: "password1" }
       expect(response.status).to eq(401)
+
+      message = JSON.parse(response.body, symbolize_names: true)
+      expect(message).to eq({"error": "Invalid credentials"})
     end
   
   end
