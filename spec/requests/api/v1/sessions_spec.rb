@@ -1,13 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe "Sessions", type: :request do
-  let!(:email) { Faker::Internet.email }
+  let!(:email) { "whatever@example.com" }
   let!(:password) { "password" }
+  let!(:user) { User.create(email: email, password: password) }
 
   describe "POST /api/v1/sessions" do
     it "returns json with api key when valid params are given" do
       post api_v1_sessions_path, params: { email: email, password: password }
-
+      require 'pry'; binding.pry 
       expect(response).to be_successful
       expect(response.status).to eq(200)
       expect(response.content_type).to eq("application/json")
@@ -39,6 +40,6 @@ RSpec.describe "Sessions", type: :request do
       post api_v1_sessions_path, params: { email: email, password: "password1" }
       expect(response.status).to eq(401)
     end
-  end
+  
   end
 end
