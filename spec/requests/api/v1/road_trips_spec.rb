@@ -18,7 +18,7 @@ RSpec.describe "RoadTrips", type: :request, vcr: { :match_requests_on => [:uri] 
 
       data = json_body[:data]
       expect(data).to have_key(:id)
-      expect(data[:id]).to be_a(String)
+      expect(data[:id]).to be_nil
       expect(data).to have_key(:type)
       expect(data[:type]).to be_a(String)
       expect(data[:type]).to eq("roadtrip")
@@ -32,7 +32,7 @@ RSpec.describe "RoadTrips", type: :request, vcr: { :match_requests_on => [:uri] 
       expect(data[:attributes][:end_city]).to eq(destination)
       expect(data[:attributes]).to have_key(:travel_time)
       expect(data[:attributes][:travel_time]).to be_a(String)
-      expect(data[:attributes][:travel_time]).to eq("2 hours, 13 minutes")
+      expect(data[:attributes][:travel_time]).to eq("1 hour, 53 minutes")
       expect(data[:attributes]).to have_key(:weather_at_eta)
       expect(data[:attributes][:weather_at_eta]).to be_a(Hash)
       expect(data[:attributes][:weather_at_eta]).to have_key(:temperature)
