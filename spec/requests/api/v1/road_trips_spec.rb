@@ -3,12 +3,13 @@ require 'rails_helper'
 RSpec.describe "RoadTrips", type: :request, vcr: { :match_requests_on => [:uri] } do
   let!(:origin) { "Denver,CO" }
   let!(:destination) { "Pueblo,CO" }
+  let!(:user) { User.create!(email: "email@email.com", password: "pass", password_confirmation: "pass") }
 
   context "POST /road_trip" do
     it "returns json with travel time, arrival weather, and arrival temperature" do
-      user = User.create(email: "whatever@example.com", password: "password")
+      user_1 = User.create(email: "whatever@example.com", password: "password")
 
-      post api_v1_road_trips_path, params: { origin: origin, destination: destination, api_key: user.api_key }
+      post api_v1_road_trips_path, params: { origin: origin, destination: destination, api_key: user_1.api_key }
       
       expect(response).to be_successful
       
@@ -39,6 +40,18 @@ RSpec.describe "RoadTrips", type: :request, vcr: { :match_requests_on => [:uri] 
       expect(data[:attributes][:weather_at_eta][:temperature]).to be_a(Float)
       expect(data[:attributes][:weather_at_eta]).to have_key(:conditions)
       expect(data[:attributes][:weather_at_eta][:conditions]).to be_a(String)
+    end
+
+    it "returns a 401 error if the api key is invalid" do
+      post api_v1_road_trips_path, params: { origin: origin, destination: destination, api_key: "12345" }
+      expect(response).to_not be_successful
+      expect(response.status).to eq(401)
+    end
+
+    it "returns a 401 error if the api key is missing" do
+      post api_v1_road_trips_path, params: { origin: origin, destination: destination }
+      expect(response).to_not be_successful
+      expect(response.status).to eq(401)
     end
   end
 end
