@@ -10,7 +10,7 @@ RSpec.describe ForecastFacade, type: :facade, vcr: true do
   describe "class methods" do
     describe "weather" do
       it "returns a forecast object" do
-        forecast = ForecastFacade.weather(location)
+        forecast = ForecastFacade.weather(coords, units)
         expect(forecast).to be_a(Forecast)
       end
     end
