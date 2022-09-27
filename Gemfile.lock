@@ -83,6 +83,9 @@ GEM
     diff-lcs (1.5.0)
     digest (3.1.0)
     docile (1.4.0)
+    dotiw (5.3.3)
+      activesupport
+      i18n
     erubi (1.11.0)
     factory_bot (6.2.1)
       activesupport (>= 5.0.0)
@@ -223,6 +226,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap
   debug
+  dotiw
   factory_bot_rails
   faker
   faraday

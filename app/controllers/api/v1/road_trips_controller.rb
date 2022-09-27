@@ -1,10 +1,14 @@
 module Api
   module V1
     class RoadTripsController < ApplicationController
+      include Timable
+
       def create
         user = User.find_by(api_key: params[:api_key])
         if user
-          roadtrip = RoadTripFacade.create_trip(params[:origin], params[:destination])
+          trip = RoadTripFacade.create_trip(params[:origin], params[:destination])
+          roadtrip = create_road_trip(params[:origin], params[:destination], trip)
+
           render json: RoadTripSerializer.new(roadtrip)
         else
           render json: { error: 'Invalid API key' }, status: 401
