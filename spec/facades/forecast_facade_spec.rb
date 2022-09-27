@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ForecastFacade, type: :facade, vcr: true do
+RSpec.describe ForecastFacade, type: :facade, vcr: { :match_requests_on => [:uri] } do
   let!(:coords) { [
     39.738453,
     -104.984853

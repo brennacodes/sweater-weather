@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe BookFacade, type: :facade, vcr: true do
+RSpec.describe BookFacade, type: :facade, vcr: { :match_requests_on => [:uri] } do
   let(:location) { "Denver,CO" }
   let(:quantity) { 5 }
 

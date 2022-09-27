@@ -21,7 +21,7 @@ http_interactions:
       Server:
       - nginx/1.18.0 (Ubuntu)
       Date:
-      - Tue, 27 Sep 2022 00:50:33 GMT
+      - Tue, 27 Sep 2022 22:14:08 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,14 +35,14 @@ http_interactions:
       Access-Control-Max-Age:
       - '86400'
       X-Ol-Stats:
-      - '"SR 1 0.015 TT 0 0.016"'
+      - '"SR 1 0.024 TT 0 0.026"'
       Referrer-Policy:
       - no-referrer-when-downgrade
     body:
       encoding: UTF-8
       string: |-
         {
-            "numFound": 47113,
+            "numFound": 47111,
             "start": 0,
             "numFoundExact": true,
             "docs": [
@@ -660,9 +660,9 @@ http_interactions:
                     ]
                 }
             ],
-            "num_found": 47113,
+            "num_found": 47111,
             "q": "denver,co",
             "offset": null
         }
-  recorded_at: Tue, 27 Sep 2022 00:50:33 GMT
+  recorded_at: Tue, 27 Sep 2022 22:14:08 GMT
 recorded_with: VCR 6.1.0

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe BookService, type: :service, vcr: true do
+RSpec.describe BookService, type: :service, vcr: { :match_requests_on => [:uri] } do
   it "retrieves books for a given location and quantity limit" do
     location = "denver,co"
     qty = 10

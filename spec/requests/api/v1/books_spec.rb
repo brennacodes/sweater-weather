@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "book search", type: :request, vcr: true do
+RSpec.describe "book search", type: :request, vcr: { :match_requests_on => [:uri] } do
   let!(:location) { "Denver,CO" }
   let!(:quantity) { 5 }
   

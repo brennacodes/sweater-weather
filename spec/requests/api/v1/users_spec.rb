@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "User Registration", type: :request, vcr: true do
+RSpec.describe "User Registration", type: :request, vcr: { :match_requests_on => [:uri] } do
   let!(:email) { Faker::Internet.email }
   let!(:password) { "password" }
   let!(:valid_params) { 

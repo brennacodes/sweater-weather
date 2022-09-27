@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe BookSerializer, type: :serializer do
+RSpec.describe BookSerializer, type: :serializer, vcr: { :match_requests_on => [:uri] } do
   let!(:json) { File.read('spec/fixtures/book_fixture.json') }
   let!(:parsed) { JSON.parse(json, symbolize_names: true) }
   let!(:all_books) { parsed[:docs] }

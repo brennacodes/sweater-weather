@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Sessions", type: :request do
+RSpec.describe "Sessions", type: :request, vcr: { :match_requests_on => [:uri] } do
   let!(:email) { "whatever@example.com" }
   let!(:password) { "password" }
   let!(:user) { User.create(email: email, password: password) }

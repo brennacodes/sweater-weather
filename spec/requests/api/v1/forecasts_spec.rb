@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Forecast", type: :request, vcr: true do
+RSpec.describe "Forecast", type: :request, vcr: { :match_requests_on => [:uri] } do
   let!(:user) { User.create!(email: Faker::Internet.email, password_digest: "password") }
   let!(:email) { user.email }
   let!(:password) { user.password_digest }
