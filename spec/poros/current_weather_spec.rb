@@ -5,7 +5,7 @@ RSpec.describe CurrentWeather, type: :poro, vcr: { :match_requests_on => [:uri] 
   let!(:forecast) { OpenWeatherService.get_weather([39.7392358, -104.990251], 'imperial') }
 
   it "returns a daily weather object" do
-    object = CurrentWeather.new(forecast[:hourly].first)
+    object = CurrentWeather.new(forecast[:current])
 
     expect(object).to be_a(CurrentWeather)
     expect(object.datetime).to be_a(DateTime)
