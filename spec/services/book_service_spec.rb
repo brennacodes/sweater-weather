@@ -6,10 +6,9 @@ RSpec.describe BookService, type: :service, vcr: true do
     qty = 10
     response = BookService.search_books(location, qty)
     expect(response).to_not be_nil
-    expect(response).to be_successful
     expect(response).to be_a(Hash)
     expect(response[:docs]).to be_an(Array)
     expect(response[:docs].count).to eq(10)
-    expect(response[:numFound]).to eq(10)
+    expect(response[:numFound]).to eq(47113)
   end
 end
