@@ -22,9 +22,6 @@ module Timable
     string_time = distance_of_time_in_words(current, current + rt).gsub(" and", ",")
     details[:travel_time] = string_time
 
-    # trip_time = trip[:formattedTime]
-    # format_time = trip_time.tr(":", " ").split(" ").map(&:to_i)
-    # format_time.unshift(00) if format_time.length == 3
     coords = trip[:legs][0][:maneuvers][-1][:startPoint]
     forecast = OpenWeatherService.get_forecast([coords[:lat], coords[:lng]])
 

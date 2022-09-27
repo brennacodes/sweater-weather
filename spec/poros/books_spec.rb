@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Books, type: :poro do
+RSpec.describe Books, type: :poro, vcr: { :match_requests_on => [:uri] } do
   let!(:books_json) { File.read('spec/fixtures/books_fixture.json') }
   let!(:parsed) { JSON.parse(books_json, symbolize_names: true) }
   let!(:forecast) { { summary: "Partly cloudy", temperature: "75 F" } }
