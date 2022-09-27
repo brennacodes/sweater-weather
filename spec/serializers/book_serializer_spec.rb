@@ -15,7 +15,7 @@ RSpec.describe BookSerializer, type: :serializer do
       total_books_found: parsed[:numFound]
     })
 
-    serializer = BookSerializer.new(poro)
+    serializer = BookSerializer.new(poro).serializable_hash
 
     expect(serializer).to have_key(:data)
     data = serializer[:data]
@@ -23,7 +23,7 @@ RSpec.describe BookSerializer, type: :serializer do
     expect(data).to have_key(:id)
     expect(data[:id]).to eq("null")
     expect(data).to have_key(:type)
-    expect(data[:type]).to eq("books")
+    expect(data[:type]).to eq(:books)
     expect(data).to have_key(:attributes)
     expect(data[:attributes]).to be_a(Hash)
     expect(data[:attributes]).to have_key(:destination)
@@ -35,6 +35,5 @@ RSpec.describe BookSerializer, type: :serializer do
     expect(data[:attributes][:forecast]).to have_key(:temperature)
     expect(data[:attributes][:forecast][:temperature]).to eq("75 F")
     expect(data[:attributes]).to have_key(:total_books_found)
-
   end
 end
