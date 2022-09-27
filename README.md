@@ -10,7 +10,7 @@
 
 The front-end team has drawn up this wireframe for the application’s landing page:
 
-![Root](https://backend.turing.edu/module3/projects/sweater_weather/images/root.png)
+![Root](/public/images/root.png)
 
 They need your API to expose two API endpoints in order to populate this page with the necessary data.
 
@@ -105,7 +105,7 @@ Example:
 
 The front-end team has drawn up this wireframe for registration:
 
-![Sign Up](https://backend.turing.edu/module3/projects/sweater_weather/images/sign_up.png)
+![Sign Up](/public/images/sign_up.png)
 
 Your api should expose this endpoint:
 
@@ -156,7 +156,7 @@ body:
 
 The front-end team has drawn up this wireframe for log in:
 
-![Login](https://backend.turing.edu/module3/projects/sweater_weather/images/login.png)
+![Login](/public/images/login.png)
 
 Your api should expose this endpoint:
 
@@ -207,7 +207,7 @@ body:
 
 The front-end team has drawn up these wireframes for a feature where users can plan road trips:
 
-![Road Trip(https://backend.turing.edu/module3/projects/sweater_weather/images/road_trip.png)
+![Road Trip](/public/images/road_trip.png)
 
 **Request:**
 
@@ -282,7 +282,7 @@ eg:
 3. Check the [Mod 3 Extensions page](https://backend.turing.io/module3/extensions/) for additional things you can add to your project.
 4. Add an endpoint that will retrieve a background image for a given city that the frontend team can use on the landing page. Requirements below:
 
-![Image Extension](https://backend.turing.edu/module3/projects/sweater_weather/images/image_extension.png)
+![Image Extension](/public/images/image_extension.png)
 
 **Request:**
 
