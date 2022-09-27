@@ -6,6 +6,15 @@ class MapQuestService < BaseService
     end
     self.parse_json(response)
   end
+
+  def self.get_travel_time(origin, destination)
+    response = conn.get("/directions/v2/route") do |req|
+      req.params['key'] = Figaro.env.map_api_key
+      req.params['from'] = origin
+      req.params['to'] = destination
+    end
+    self.parse_json(response)
+  end
   
   private
     def self.conn

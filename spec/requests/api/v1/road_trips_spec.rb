@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "RoadTrips", type: :request, vcr: true do
+RSpec.describe "RoadTrips", type: :request, vcr: { :match_requests_on => [:uri] } do
   let!(:origin) { "Denver,CO" }
   let!(:destination) { "Pueblo,CO" }
 
@@ -39,6 +39,6 @@ RSpec.describe "RoadTrips", type: :request, vcr: true do
       expect(data[:attributes][:weather_at_eta][:temperature]).to be_a(Float)
       expect(data[:attributes][:weather_at_eta]).to have_key(:conditions)
       expect(data[:attributes][:weather_at_eta][:conditions]).to be_a(String)
-      
+    end
   end
 end
