@@ -1,7 +1,6 @@
 class BookFacade
   def self.get_books(location, quantity)
     search = BookService.search_books(location, quantity)
-
     books = search[:docs].map do |book|
       Book.new(book)
     end

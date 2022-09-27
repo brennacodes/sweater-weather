@@ -7,8 +7,8 @@ RSpec.describe BookFacade, type: :facade, vcr: true do
   describe "class methods" do
     describe "get_books" do
       it "returns a book object" do
-        book = BookFacade.get_books(location, quantity)
-        expect(book).to be_a(Book)
+        books = BookFacade.get_books(location, quantity)
+        expect(books).to be_a(Books)
       end
     end
 
