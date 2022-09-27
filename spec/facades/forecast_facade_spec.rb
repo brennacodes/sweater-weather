@@ -18,7 +18,11 @@ RSpec.describe ForecastFacade, type: :facade, vcr: true do
     describe "current_conditions" do
       it "returns a current weather object" do
         current = ForecastFacade.current_conditions(coords)
-        expect(current).to be_a(CurrentWeather)
+        expect(current).to be_a(Hash)
+        expect(current).to have_key(:dt)
+        expect(current).to have_key(:sunrise)
+        expect(current).to have_key(:sunset)
+        expect(current).to have_key(:temp)
       end
     end
   end
