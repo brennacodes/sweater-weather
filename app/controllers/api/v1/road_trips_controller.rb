@@ -2,6 +2,7 @@ module Api
   module V1
     class RoadTripsController < ApplicationController
       include Timable
+      include Renderable
 
       def create
         user = User.find_by(api_key: params[:api_key])
@@ -11,7 +12,7 @@ module Api
 
           render json: RoadTripSerializer.new(roadtrip)
         else
-          json_response({ errors: "Invalid API key" }, status: 401
+          json_response({ errors: "Invalid API key" }, :unauthorized)
         end
       end
 

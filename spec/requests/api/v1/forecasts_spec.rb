@@ -9,8 +9,6 @@ RSpec.describe "Forecast", type: :request, vcr: { :match_requests_on => [:uri] }
   let!(:sad_location_1) { "Denver" }
   let!(:sad_location_2) { "aaljpoiap" }
   let!(:sad_location_3) { " " }
-  # let!(:invalid_location) { '{ "errors": "Invalid location parameter. Please enter a location in 'City,STATE' format, where STATE is a two-letter abbreviation of the state (ex. 'CO' for 'Colorado')"}" }
-  # let!(:missing_location) { 'error: Missing location parameter' }
 
   describe "request with location params" do
     it "has has a happy path" do

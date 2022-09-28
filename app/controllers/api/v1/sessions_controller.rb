@@ -1,12 +1,14 @@
 module Api
   module V1
     class SessionsController < ApplicationController
+      include Renderable
+      
       def create
         @user = User.find_by(email: user_params[:email])
         if @user && @user.authenticate(user_params[:password])
           render json: UserSerializer.new(@user), status: 200
         else
-          render json: { "error": "Invalid credentials" }, status: 401
+          json_response({ "error": "Invalid credentials" }, :unauthorized)
         end
       end
 

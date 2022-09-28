@@ -46,12 +46,14 @@ RSpec.describe "RoadTrips", type: :request, vcr: { :match_requests_on => [:uri] 
       post api_v1_road_trips_path, params: { origin: origin, destination: destination, api_key: "12345" }
       expect(response).to_not be_successful
       expect(response.status).to eq(401)
+      expect(response.body.include?("Invalid API key")).to be_truthy
     end
-
+    
     it "returns a 401 error if the api key is missing" do
       post api_v1_road_trips_path, params: { origin: origin, destination: destination }
       expect(response).to_not be_successful
       expect(response.status).to eq(401)
+      expect(response.body.include?("Invalid API key")).to be_truthy
     end
   end
 end
