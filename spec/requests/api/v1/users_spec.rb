@@ -39,36 +39,33 @@ RSpec.describe "User Registration", type: :request, vcr: { :match_requests_on =>
       it "returns 400 if no params are given" do
         post to_path, params: {}
         expect(response.status).to eq(400)
+        expect(response.body.include?("Missing required parameters")).to be_truthy
       end
 
       it "returns 400 if passwords are not given" do
         post to_path, params: { email: email }
 
         expect(response.status).to eq(400)
-        json_body = JSON.parse(response.body, symbolize_names: true)
-        expect(json_body).to eq({"error": "Missing required parameters"})
+        expect(response.body.include?("Missing required")).to be_truthy
       end
-
+      
       it "returns 400 if email and password confirmation are not given" do
         post to_path, params: { password: password }
-
+        
         expect(response.status).to eq(400)
-        json_body = JSON.parse(response.body, symbolize_names: true)
-        expect(json_body).to eq({"error": "Missing required parameters"})
+        expect(response.body.include?("Missing required")).to be_truthy
       end
-
+      
       it "returns 400 if email is not given" do
         post to_path, params: { password: "hi", password_confirmation: password }
         expect(response.status).to eq(400)
-        json_body = JSON.parse(response.body, symbolize_names: true)
-        expect(json_body).to eq({"error": "Missing required parameters"})
+        expect(response.body.include?("Missing required")).to be_truthy
       end
 
       it "returns 400 if password adn password_confirmation do not match" do
         post to_path, params: { email: email, password: password, password_confirmation: "password1" }
         expect(response.status).to eq(400)
-        json_body = JSON.parse(response.body, symbolize_names: true)
-        expect(json_body).to eq({ 'error': 'Password and password confirmation do not match' })
+        expect(response.body.include?("Password and password confirmation do not match")).to be_truthy
       end
     end
   
@@ -80,8 +77,7 @@ RSpec.describe "User Registration", type: :request, vcr: { :match_requests_on =>
 
         post to_path, params: { email: "greg@greg.greg", password: "hello", password_confirmation: "hello" }
         expect(response.status).to eq(409)
-        json_body = JSON.parse(response.body, symbolize_names: true)
-        expect(json_body).to eq({ { errors: "Email already exists' })
+        expect(response.body.include?("Email already exists")).to be_truthy
       end
     end
   end
