@@ -5,10 +5,10 @@ module Api
       include Renderable
 
       def create
-        user = User.find_by(api_key: params[:api_key])
+        user = User.find_by(api_key: roadtrip_params[:api_key])
         if user
-          trip = RoadTripFacade.create_trip(params[:origin], params[:destination])
-          roadtrip = create_road_trip(params[:origin], params[:destination], trip)
+          trip = RoadTripFacade.create_trip(roadtrip_params[:origin], roadtrip_params[:destination])
+          roadtrip = create_road_trip(roadtrip_params[:origin], roadtrip_params[:destination], trip)
 
           render json: RoadTripSerializer.new(roadtrip)
         else

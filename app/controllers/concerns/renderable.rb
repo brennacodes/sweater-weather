@@ -27,10 +27,6 @@ module Renderable
     json_response({ errors: "Password and password confirmation do not match" }, :bad_request)
   end
 
-  def render_try_again
-    json_response({ errors: "Please try your request again" }, :bad_request)
-  end
-
   def render_something_wrong
     json_response({ errors: "Something went wrong. Try again or come back later." }, :conflict)
   end

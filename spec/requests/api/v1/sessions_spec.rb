@@ -33,17 +33,13 @@ RSpec.describe "Sessions", type: :request, vcr: { :match_requests_on => [:uri] }
     it "returns 401 if no params are given" do
       post api_v1_sessions_path, params: {}
       expect(response.status).to eq(401)
-
-      message = JSON.parse(response.body, symbolize_names: true)
-      expect(message).to eq({"error": "Invalid credentials"})
+      expect(response.body.include?("Invalid credentials")).to eq(true)
     end
-
+    
     it "returns 401 if invalid credentials are given" do
       post api_v1_sessions_path, params: { email: email, password: "password1" }
       expect(response.status).to eq(401)
-
-      message = JSON.parse(response.body, symbolize_names: true)
-      expect(message).to eq({"error": "Invalid credentials"})
+      expect(response.body.include?("Invalid credentials")).to eq(true)
     end
   
   end
