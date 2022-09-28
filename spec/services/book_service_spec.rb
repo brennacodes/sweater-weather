@@ -9,6 +9,6 @@ RSpec.describe BookService, type: :service, vcr: { :match_requests_on => [:uri] 
     expect(response).to be_a(Hash)
     expect(response[:docs]).to be_an(Array)
     expect(response[:docs].count).to eq(10)
-    expect(response[:numFound]).to eq(47113)
+    expect(response[:numFound]).to eq(47111)
   end
 end

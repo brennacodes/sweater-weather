@@ -9,6 +9,8 @@ RSpec.describe "Forecast", type: :request, vcr: { :match_requests_on => [:uri] }
   let!(:sad_location_1) { "Denver" }
   let!(:sad_location_2) { "aaljpoiap" }
   let!(:sad_location_3) { " " }
+  # let!(:invalid_location) { '{ "errors": "Invalid location parameter. Please enter a location in 'City,STATE' format, where STATE is a two-letter abbreviation of the state (ex. 'CO' for 'Colorado')"}" }
+  # let!(:missing_location) { 'error: Missing location parameter' }
 
   describe "request with location params" do
     it "has has a happy path" do
@@ -19,12 +21,18 @@ RSpec.describe "Forecast", type: :request, vcr: { :match_requests_on => [:uri] }
     it "has has a sad path" do
       get api_v1_forecasts_path, params: { location: sad_location_1 }
       expect(response).to_not be_successful
-
+      expect(response.status).to eq(400)
+      expect(response.body.include?("Invalid location")).to be true
+      
       get api_v1_forecasts_path, params: { location: sad_location_2 }
       expect(response).to_not be_successful
-
+      expect(response.status).to eq(400)
+      expect(response.body.include?("Invalid location")).to be true
+      
       get api_v1_forecasts_path, params: { location: sad_location_3 }
       expect(response).to_not be_successful
+      expect(response.status).to eq(400)
+      expect(response.body.include?("Missing location")).to be true
     end
 
     it "returns necessary data" do
@@ -52,7 +60,7 @@ RSpec.describe "Forecast", type: :request, vcr: { :match_requests_on => [:uri] }
       expect(current_weather[:feels_like]).to be < 100
       expect(current_weather[:humidity]).to be_an(Integer)
       expect(current_weather[:humidity]).to be < 100
-      expect(current_weather[:uvi]).to be_an(Integer)
+      expect(current_weather[:uvi]).to be_an(Float)
       expect(current_weather[:visibility]).to be_an(Integer)
       expect(current_weather[:conditions]).to be_a(String)
       expect(current_weather[:icon]).to be_a(String)

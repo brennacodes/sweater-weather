@@ -7,7 +7,7 @@ module Verifiable
   end
 
   def check_input(location_input)
-    return render_missing_location if location_input.nil? || location_input.empty?
+    return render_missing_location if location_input.nil? || location_input.gsub(" ", "").empty?
     return render_invalid_location_input if location_input.split(',').length < 2
     true
   end

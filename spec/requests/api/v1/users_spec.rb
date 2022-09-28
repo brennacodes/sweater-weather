@@ -81,7 +81,7 @@ RSpec.describe "User Registration", type: :request, vcr: { :match_requests_on =>
         post to_path, params: { email: "greg@greg.greg", password: "hello", password_confirmation: "hello" }
         expect(response.status).to eq(409)
         json_body = JSON.parse(response.body, symbolize_names: true)
-        expect(json_body).to eq({ error: 'Email already exists' })
+        expect(json_body).to eq({ { errors: "Email already exists' })
       end
     end
   end

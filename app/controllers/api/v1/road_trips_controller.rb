@@ -11,7 +11,7 @@ module Api
 
           render json: RoadTripSerializer.new(roadtrip)
         else
-          render json: { error: 'Invalid API key' }, status: 401
+          json_response({ errors: "Invalid API key" }, status: 401
         end
       end
 
