@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Forecast", type: :request, vcr: true do
+RSpec.describe "Forecast", type: :request, vcr: { :match_requests_on => [:uri] } do
   let!(:user) { User.create!(email: Faker::Internet.email, password_digest: "password") }
   let!(:email) { user.email }
   let!(:password) { user.password_digest }
@@ -19,12 +19,18 @@ RSpec.describe "Forecast", type: :request, vcr: true do
     it "has has a sad path" do
       get api_v1_forecasts_path, params: { location: sad_location_1 }
       expect(response).to_not be_successful
-
+      expect(response.status).to eq(400)
+      expect(response.body.include?("Invalid location")).to be true
+      
       get api_v1_forecasts_path, params: { location: sad_location_2 }
       expect(response).to_not be_successful
-
+      expect(response.status).to eq(400)
+      expect(response.body.include?("Invalid location")).to be true
+      
       get api_v1_forecasts_path, params: { location: sad_location_3 }
       expect(response).to_not be_successful
+      expect(response.status).to eq(400)
+      expect(response.body.include?("Missing location")).to be true
     end
 
     it "returns necessary data" do
@@ -52,7 +58,7 @@ RSpec.describe "Forecast", type: :request, vcr: true do
       expect(current_weather[:feels_like]).to be < 100
       expect(current_weather[:humidity]).to be_an(Integer)
       expect(current_weather[:humidity]).to be < 100
-      expect(current_weather[:uvi]).to be_an(Integer)
+      expect(current_weather[:uvi]).to be_an(Float)
       expect(current_weather[:visibility]).to be_an(Integer)
       expect(current_weather[:conditions]).to be_a(String)
       expect(current_weather[:icon]).to be_a(String)

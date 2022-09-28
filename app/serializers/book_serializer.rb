@@ -1,8 +1,7 @@
 class BookSerializer
   include JSONAPI::Serializer
   set_type :books
-  attributes :id, 
-             :destination, 
+  attributes :destination, 
              :forecast, 
              :total_books_found, 
              :books

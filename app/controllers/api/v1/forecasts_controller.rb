@@ -32,7 +32,7 @@ module Api
           forecast = ForecastFacade.weather(get_coords(location_params), units)
 
           render json: ForecastSerializer.new(forecast) if forecast != nil
-          render json: { error: 'Could not process your request at this time.' }, status: 400  if forecast == nil
+          json_response({ errors: "Could not process your request at this time." }, status: 400)  if forecast == nil
         end
     end
   end

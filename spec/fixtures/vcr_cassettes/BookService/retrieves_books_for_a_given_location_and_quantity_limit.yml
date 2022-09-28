@@ -1,0 +1,668 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://openlibrary.org/search.json?limit=10&q=denver,co
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.5.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.18.0 (Ubuntu)
+      Date:
+      - Tue, 27 Sep 2022 22:14:08 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Method:
+      - GET, OPTIONS
+      Access-Control-Max-Age:
+      - '86400'
+      X-Ol-Stats:
+      - '"SR 1 0.024 TT 0 0.026"'
+      Referrer-Policy:
+      - no-referrer-when-downgrade
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "numFound": 47111,
+            "start": 0,
+            "numFoundExact": true,
+            "docs": [
+                {
+                    "key": "/works/OL8503198W",
+                    "type": "work",
+                    "seed": [
+                        "/books/OL10909613M",
+                        "/works/OL8503198W",
+                        "/authors/OL2843451A"
+                    ],
+                    "title": "Denver, Co",
+                    "title_suggest": "Denver, Co",
+                    "edition_count": 1,
+                    "edition_key": [
+                        "OL10909613M"
+                    ],
+                    "publish_date": [
+                        "January 2001"
+                    ],
+                    "publish_year": [
+                        2001
+                    ],
+                    "first_publish_year": 2001,
+                    "isbn": [
+                        "0762507845",
+                        "9780762507849"
+                    ],
+                    "last_modified_i": 1338943517,
+                    "ebook_count_i": 0,
+                    "ebook_access": "no_ebook",
+                    "has_fulltext": false,
+                    "public_scan_b": false,
+                    "publisher": [
+                        "Universal Map Enterprises"
+                    ],
+                    "language": [
+                        "eng"
+                    ],
+                    "author_key": [
+                        "OL2843451A"
+                    ],
+                    "author_name": [
+                        "Universal Map"
+                    ],
+                    "publisher_facet": [
+                        "Universal Map Enterprises"
+                    ],
+                    "_version_": 1735677215044009984,
+                    "author_facet": [
+                        "OL2843451A Universal Map"
+                    ]
+                },
+                {
+                    "key": "/works/OL4437736W",
+                    "type": "work",
+                    "seed": [
+                        "/books/OL10911511M",
+                        "/works/OL4437736W",
+                        "/authors/OL882946A"
+                    ],
+                    "title": "Denver Co Deluxe Flip Map",
+                    "title_suggest": "Denver Co Deluxe Flip Map",
+                    "edition_count": 1,
+                    "edition_key": [
+                        "OL10911511M"
+                    ],
+                    "publish_date": [
+                        "January 2003"
+                    ],
+                    "publish_year": [
+                        2003
+                    ],
+                    "first_publish_year": 2003,
+                    "isbn": [
+                        "0762557362",
+                        "9780762557363"
+                    ],
+                    "last_modified_i": 1260838560,
+                    "ebook_count_i": 0,
+                    "ebook_access": "no_ebook",
+                    "has_fulltext": false,
+                    "public_scan_b": false,
+                    "publisher": [
+                        "Universal Map Enterprises"
+                    ],
+                    "language": [
+                        "eng"
+                    ],
+                    "author_key": [
+                        "OL882946A"
+                    ],
+                    "author_name": [
+                        "Laura Ryder"
+                    ],
+                    "publisher_facet": [
+                        "Universal Map Enterprises"
+                    ],
+                    "_version_": 1735672139959238658,
+                    "author_facet": [
+                        "OL882946A Laura Ryder"
+                    ]
+                },
+                {
+                    "key": "/works/OL8808821W",
+                    "type": "work",
+                    "seed": [
+                        "/books/OL8537031M",
+                        "/works/OL8808821W",
+                        "/authors/OL3010394A"
+                    ],
+                    "title": "University of Denver Co 2007",
+                    "title_suggest": "University of Denver Co 2007",
+                    "edition_count": 1,
+                    "edition_key": [
+                        "OL8537031M"
+                    ],
+                    "publish_date": [
+                        "July 1, 2006"
+                    ],
+                    "publish_year": [
+                        2006
+                    ],
+                    "first_publish_year": 2006,
+                    "number_of_pages_median": 180,
+                    "oclc": [
+                        "150368610"
+                    ],
+                    "isbn": [
+                        "9781427401687",
+                        "1427401683"
+                    ],
+                    "last_modified_i": 1304171421,
+                    "ebook_count_i": 0,
+                    "ebook_access": "no_ebook",
+                    "has_fulltext": false,
+                    "public_scan_b": false,
+                    "cover_edition_key": "OL8537031M",
+                    "cover_i": 1847337,
+                    "publisher": [
+                        "College Prowler"
+                    ],
+                    "language": [
+                        "eng"
+                    ],
+                    "author_key": [
+                        "OL3010394A"
+                    ],
+                    "author_name": [
+                        "College Prowler"
+                    ],
+                    "id_goodreads": [
+                        "2985742"
+                    ],
+                    "publisher_facet": [
+                        "College Prowler"
+                    ],
+                    "_version_": 1735677464197201922,
+                    "author_facet": [
+                        "OL3010394A College Prowler"
+                    ]
+                },
+                {
+                    "key": "/works/OL10910782M",
+                    "type": "work",
+                    "seed": [
+                        "/books/OL10910782M",
+                        "/works/OL10910782M"
+                    ],
+                    "title": "Denver, Co Vicinity (City Wall Maps)",
+                    "title_suggest": "Denver, Co Vicinity (City Wall Maps)",
+                    "edition_count": 1,
+                    "edition_key": [
+                        "OL10910782M"
+                    ],
+                    "publish_date": [
+                        "January 2001"
+                    ],
+                    "publish_year": [
+                        2001
+                    ],
+                    "first_publish_year": 2001,
+                    "isbn": [
+                        "0762538627",
+                        "9780762538621"
+                    ],
+                    "last_modified_i": 1655272482,
+                    "ebook_count_i": 0,
+                    "ebook_access": "no_ebook",
+                    "has_fulltext": false,
+                    "public_scan_b": false,
+                    "publisher": [
+                        "Universal Map Enterprises"
+                    ],
+                    "language": [
+                        "eng"
+                    ],
+                    "publisher_facet": [
+                        "Universal Map Enterprises"
+                    ],
+                    "_version_": 1735678998732603392
+                },
+                {
+                    "key": "/works/OL8415118W",
+                    "type": "work",
+                    "seed": [
+                        "/books/OL7900786M",
+                        "/works/OL8415118W",
+                        "/authors/OL2806763A"
+                    ],
+                    "title": "Five Points Neighborhood of Denver  (CO)",
+                    "title_suggest": "Five Points Neighborhood of Denver  (CO)",
+                    "edition_count": 1,
+                    "edition_key": [
+                        "OL7900786M"
+                    ],
+                    "publish_date": [
+                        "June 11, 2001"
+                    ],
+                    "publish_year": [
+                        2001
+                    ],
+                    "first_publish_year": 2001,
+                    "number_of_pages_median": 128,
+                    "oclc": [
+                        "47691535"
+                    ],
+                    "isbn": [
+                        "0738518700",
+                        "9780738518701"
+                    ],
+                    "last_modified_i": 1303742645,
+                    "ebook_count_i": 0,
+                    "ebook_access": "no_ebook",
+                    "has_fulltext": false,
+                    "public_scan_b": false,
+                    "cover_edition_key": "OL7900786M",
+                    "cover_i": 1371298,
+                    "first_sentence": [
+                        "After the Civil War, freed slaves came west from the south looking for work."
+                    ],
+                    "publisher": [
+                        "Arcadia  Publishing (SC)"
+                    ],
+                    "language": [
+                        "eng"
+                    ],
+                    "author_key": [
+                        "OL2806763A"
+                    ],
+                    "author_name": [
+                        "Laura M. Mauck"
+                    ],
+                    "id_librarything": [
+                        "3305602"
+                    ],
+                    "publisher_facet": [
+                        "Arcadia  Publishing (SC)"
+                    ],
+                    "_version_": 1735676935354187777,
+                    "author_facet": [
+                        "OL2806763A Laura M. Mauck"
+                    ]
+                },
+                {
+                    "key": "/works/OL8541064W",
+                    "type": "work",
+                    "seed": [
+                        "/books/OL9197762M",
+                        "/works/OL8541064W",
+                        "/authors/OL2859862A"
+                    ],
+                    "title": "Insight Fleximap Denver, CO (Insight Fleximaps)",
+                    "title_suggest": "Insight Fleximap Denver, CO (Insight Fleximaps)",
+                    "edition_count": 1,
+                    "edition_key": [
+                        "OL9197762M"
+                    ],
+                    "publish_date": [
+                        "January 30, 2006"
+                    ],
+                    "publish_year": [
+                        2006
+                    ],
+                    "first_publish_year": 2006,
+                    "number_of_pages_median": 1,
+                    "oclc": [
+                        "64038908"
+                    ],
+                    "isbn": [
+                        "9789812582621",
+                        "9812582622"
+                    ],
+                    "last_modified_i": 1304090516,
+                    "ebook_count_i": 0,
+                    "ebook_access": "no_ebook",
+                    "has_fulltext": false,
+                    "public_scan_b": false,
+                    "cover_edition_key": "OL9197762M",
+                    "cover_i": 2302739,
+                    "publisher": [
+                        "American Map Corporation"
+                    ],
+                    "language": [
+                        "eng"
+                    ],
+                    "author_key": [
+                        "OL2859862A"
+                    ],
+                    "author_name": [
+                        "American Map Corp"
+                    ],
+                    "publisher_facet": [
+                        "American Map Corporation"
+                    ],
+                    "_version_": 1735677240763482115,
+                    "author_facet": [
+                        "OL2859862A American Map Corp"
+                    ]
+                },
+                {
+                    "key": "/works/OL10910559M",
+                    "type": "work",
+                    "seed": [
+                        "/books/OL10910559M",
+                        "/works/OL10910559M"
+                    ],
+                    "title": "Denver, Co (City & County Street Folding Maps)",
+                    "title_suggest": "Denver, Co (City & County Street Folding Maps)",
+                    "edition_count": 1,
+                    "edition_key": [
+                        "OL10910559M"
+                    ],
+                    "publish_date": [
+                        "January 2001"
+                    ],
+                    "publish_year": [
+                        2001
+                    ],
+                    "first_publish_year": 2001,
+                    "isbn": [
+                        "0762532475",
+                        "9780762532476"
+                    ],
+                    "last_modified_i": 1655272481,
+                    "ebook_count_i": 0,
+                    "ebook_access": "no_ebook",
+                    "has_fulltext": false,
+                    "public_scan_b": false,
+                    "publisher": [
+                        "Universal Map Enterprises"
+                    ],
+                    "language": [
+                        "eng"
+                    ],
+                    "publisher_facet": [
+                        "Universal Map Enterprises"
+                    ],
+                    "_version_": 1735678998561685506
+                },
+                {
+                    "key": "/works/OL8415359W",
+                    "type": "work",
+                    "seed": [
+                        "/books/OL7902353M",
+                        "/works/OL8415359W",
+                        "/subjects/railroads",
+                        "/subjects/pictorial_works",
+                        "/subjects/history",
+                        "/authors/OL2807038A"
+                    ],
+                    "title": "Rails Around Denver (CO) (Images of Rail)",
+                    "title_suggest": "Rails Around Denver (CO) (Images of Rail)",
+                    "edition_count": 1,
+                    "edition_key": [
+                        "OL7902353M"
+                    ],
+                    "publish_date": [
+                        "July 9, 2007"
+                    ],
+                    "publish_year": [
+                        2007
+                    ],
+                    "first_publish_year": 2007,
+                    "number_of_pages_median": 128,
+                    "lccn": [
+                        "2007923841"
+                    ],
+                    "oclc": [
+                        "154683075"
+                    ],
+                    "lcc": [
+                        "TF-0025.00000000.D427 L49 2007"
+                    ],
+                    "isbn": [
+                        "0738548022",
+                        "9780738548029"
+                    ],
+                    "last_modified_i": 1608419793,
+                    "ebook_count_i": 0,
+                    "ebook_access": "no_ebook",
+                    "has_fulltext": false,
+                    "public_scan_b": false,
+                    "cover_edition_key": "OL7902353M",
+                    "cover_i": 1373092,
+                    "publisher": [
+                        "Arcadia Publishing"
+                    ],
+                    "language": [
+                        "eng"
+                    ],
+                    "author_key": [
+                        "OL2807038A"
+                    ],
+                    "author_name": [
+                        "Allan C. Lewis"
+                    ],
+                    "subject": [
+                        "Railroads",
+                        "Pictorial works",
+                        "History"
+                    ],
+                    "id_goodreads": [
+                        "5918953"
+                    ],
+                    "id_librarything": [
+                        "5645277"
+                    ],
+                    "publisher_facet": [
+                        "Arcadia Publishing"
+                    ],
+                    "subject_facet": [
+                        "History",
+                        "Pictorial works",
+                        "Railroads"
+                    ],
+                    "_version_": 1735676935324827652,
+                    "lcc_sort": "TF-0025.00000000.D427 L49 2007",
+                    "author_facet": [
+                        "OL2807038A Allan C. Lewis"
+                    ],
+                    "subject_key": [
+                        "history",
+                        "pictorial_works",
+                        "railroads"
+                    ]
+                },
+                {
+                    "key": "/works/OL19500062W",
+                    "type": "work",
+                    "seed": [
+                        "/books/OL2061373M",
+                        "/works/OL19500062W",
+                        "/subjects/photovoltaic_cells",
+                        "/subjects/safety_measures",
+                        "/subjects/solar_cells",
+                        "/subjects/congresses",
+                        "/subjects/design_and_construction",
+                        "/authors/OL714790A"
+                    ],
+                    "title": "Photovoltaic safety, Denver, CO, 1988",
+                    "title_suggest": "Photovoltaic safety, Denver, CO, 1988",
+                    "edition_count": 1,
+                    "edition_key": [
+                        "OL2061373M"
+                    ],
+                    "publish_date": [
+                        "1988"
+                    ],
+                    "publish_year": [
+                        1988
+                    ],
+                    "first_publish_year": 1988,
+                    "number_of_pages_median": 246,
+                    "lccn": [
+                        "88042854"
+                    ],
+                    "publish_place": [
+                        "New York"
+                    ],
+                    "contributor": [
+                        "Photovoltaics Safety Conference (2nd : 1988 : Denver, Colo.)",
+                        "Solar Energy Research Institute.",
+                        "Luft, Werner."
+                    ],
+                    "lcc": [
+                        "TK-8322.00000000.P46 1988"
+                    ],
+                    "ddc": [
+                        "621.31244"
+                    ],
+                    "isbn": [
+                        "0883183668",
+                        "9780883183663"
+                    ],
+                    "last_modified_i": 1653726978,
+                    "ebook_count_i": 1,
+                    "ebook_access": "borrowable",
+                    "has_fulltext": true,
+                    "public_scan_b": false,
+                    "ia": [
+                        "photovoltaicsafe0000unse"
+                    ],
+                    "ia_collection_s": "inlibrary;internetarchivebooks;printdisabled",
+                    "lending_edition_s": "OL2061373M",
+                    "lending_identifier_s": "photovoltaicsafe0000unse",
+                    "printdisabled_s": "OL2061373M",
+                    "cover_edition_key": "OL2061373M",
+                    "cover_i": 4745684,
+                    "publisher": [
+                        "American Institute of Physics"
+                    ],
+                    "language": [
+                        "eng"
+                    ],
+                    "author_key": [
+                        "OL714790A"
+                    ],
+                    "author_name": [
+                        "Werner Luft"
+                    ],
+                    "subject": [
+                        "Photovoltaic cells",
+                        "Safety measures",
+                        "Solar cells",
+                        "Congresses",
+                        "Design and construction",
+                        "Accessible book",
+                        "Protected DAISY"
+                    ],
+                    "id_goodreads": [
+                        "3793862"
+                    ],
+                    "ia_box_id": [
+                        "IA40514301"
+                    ],
+                    "publisher_facet": [
+                        "American Institute of Physics"
+                    ],
+                    "subject_facet": [
+                        "Accessible book",
+                        "Congresses",
+                        "Design and construction",
+                        "Photovoltaic cells",
+                        "Protected DAISY",
+                        "Safety measures",
+                        "Solar cells"
+                    ],
+                    "_version_": 1735660805457707010,
+                    "lcc_sort": "TK-8322.00000000.P46 1988",
+                    "author_facet": [
+                        "OL714790A Werner Luft"
+                    ],
+                    "subject_key": [
+                        "accessible_book",
+                        "congresses",
+                        "design_and_construction",
+                        "photovoltaic_cells",
+                        "protected_daisy",
+                        "safety_measures",
+                        "solar_cells"
+                    ],
+                    "ddc_sort": "621.31244"
+                },
+                {
+                    "key": "/works/OL24993703W",
+                    "type": "work",
+                    "seed": [
+                        "/books/OL33223956M",
+                        "/works/OL24993703W",
+                        "/authors/OL7546291A"
+                    ],
+                    "title": "Denver, CO, US Dot-Grid Notebook",
+                    "title_suggest": "Denver, CO, US Dot-Grid Notebook",
+                    "edition_count": 1,
+                    "edition_key": [
+                        "OL33223956M"
+                    ],
+                    "publish_date": [
+                        "Dec 17, 2016"
+                    ],
+                    "publish_year": [
+                        2016
+                    ],
+                    "first_publish_year": 2016,
+                    "number_of_pages_median": 158,
+                    "isbn": [
+                        "9781541184251",
+                        "1541184254"
+                    ],
+                    "last_modified_i": 1631123055,
+                    "ebook_count_i": 0,
+                    "ebook_access": "no_ebook",
+                    "has_fulltext": false,
+                    "public_scan_b": false,
+                    "cover_edition_key": "OL33223956M",
+                    "cover_i": 11936540,
+                    "publisher": [
+                        "Createspace Independent Publishing Platform",
+                        "CreateSpace Independent Publishing Platform"
+                    ],
+                    "author_key": [
+                        "OL7546291A"
+                    ],
+                    "author_name": [
+                        "N.D. Author Services"
+                    ],
+                    "publisher_facet": [
+                        "CreateSpace Independent Publishing Platform",
+                        "Createspace Independent Publishing Platform"
+                    ],
+                    "_version_": 1735666952497528832,
+                    "author_facet": [
+                        "OL7546291A N.D. Author Services"
+                    ]
+                }
+            ],
+            "num_found": 47111,
+            "q": "denver,co",
+            "offset": null
+        }
+  recorded_at: Tue, 27 Sep 2022 22:14:08 GMT
+recorded_with: VCR 6.1.0
