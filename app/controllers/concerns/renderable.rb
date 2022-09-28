@@ -23,10 +23,6 @@ module Renderable
     json_response({ errors: "Invalid credentials" }, :unauthorized)
   end
 
-  def render_invalid_params
-    json_response({ errors: "Invalid parameters" }, :bad_request)
-  end
-
   def render_password_mismatch
     json_response({ errors: "Password and password confirmation do not match" }, :bad_request)
   end
