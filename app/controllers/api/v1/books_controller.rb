@@ -10,7 +10,7 @@ module Api
           books = BookFacade.get_books(topic, quantity)
           render json: BookSerializer.new(books)
         else
-          json_response({ errors: "Invalid quantity" }, status: 400
+          json_response({ errors: "Invalid quantity" }, :bad_request)
         end
       end
 
